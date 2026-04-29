@@ -7,7 +7,7 @@ export const themeConfig = {
         layout: {
             heroClass: 'theme-light',
             backgroundColor: 'bg-neutral-very-light-grayish-blue',
-            textColor: 'text-neutral-very-dark-grayish-blue',
+            textColor: 'text-neutral-dark-grayish-blue',
         },
         todo: {
             backgroundColor: 'bg-neutral-very-light-gray',
