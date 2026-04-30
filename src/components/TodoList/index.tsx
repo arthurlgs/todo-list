@@ -3,6 +3,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import { useContext } from "react";
 import type { Todo } from "../../hooks/useTodo";
 import IconCheck from "/images/icon-check.svg";
+import iconCross from "/images/icon-cross.svg";
 
 export interface TodoListProps {
   todoList: Todo[];
@@ -10,6 +11,7 @@ export interface TodoListProps {
   setFilter: (filter: "all" | "active" | "completed") => void;
   filter: "all" | "active" | "completed";
   clearCompleted: () => void;
+  removeTodo: (id: number) => void;
 }
 
 const TodoList = ({
@@ -18,6 +20,7 @@ const TodoList = ({
   setFilter,
   filter,
   clearCompleted,
+  removeTodo,
 }: TodoListProps) => {
   const { theme } = useContext(ThemeContext);
 
@@ -27,7 +30,7 @@ const TodoList = ({
         <ul>
           {todoList.map((todo) => (
             <li
-              className={`${themeConfig[theme].todo.borderColor} p-6 border-b`}
+              className={`${themeConfig[theme].todo.borderColor} p-6 border-b group flex justify-between items-center`}
               key={todo.id}
             >
               <div className="flex items-center gap-4">
@@ -53,6 +56,17 @@ const TodoList = ({
                   {todo.text}
                 </p>
               </div>
+
+              <button
+                onClick={() => removeTodo(todo.id)}
+                className={`opacity-0 group-hover:opacity-100 transition-opacity p-2 cursor-pointer flex items-center justify-center`}
+              >
+                <img 
+                 src={iconCross}
+                 alt="Icone Cross" 
+                 className="w-4 h-4 m-auto" 
+                />
+              </button>
             </li>
           ))}
         </ul>
