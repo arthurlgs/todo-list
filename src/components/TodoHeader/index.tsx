@@ -3,10 +3,9 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import { useContext } from "react";
 
 const TodoHeader = () => {
-
   const { theme, toggleTheme } = useContext(ThemeContext);
 
-  console.log(themeConfig[theme])
+  console.log(themeConfig[theme]);
 
   return (
     <header className="flex justify-between mb-6 pt-20">
@@ -15,7 +14,11 @@ const TodoHeader = () => {
       </h1>
 
       <button className="cursor-pointer" onClick={toggleTheme}>
-        <img className="w-8 h-8" src={`${themeConfig[theme].icon}`} alt="Alternar tema" />
+        <img
+          className="w-8 h-8"
+          src={`${themeConfig[theme].icon}`}
+          alt="Alternar tema"
+        />
       </button>
     </header>
   );

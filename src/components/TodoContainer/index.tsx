@@ -7,8 +7,7 @@ interface TodoContainerProps {
 }
 
 export const TodoContainer = ({ children }: TodoContainerProps) => {
-
-    const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <main className={`h-screen ${themeConfig[theme].layout.backgroundColor}`}>
